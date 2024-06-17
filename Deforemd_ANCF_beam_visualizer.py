@@ -13,8 +13,6 @@ import matplotlib; matplotlib.use('TkAgg')  # for compatibility on Mac OS
 import matplotlib.pyplot as plt             # for generating plots & graphs
 import os,sys
 import csv
-#import mayavi
-#from mayavi import mlab
 from numpy import matlib as matlib
 
 plt.rcParams['figure.figsize']=[12,8]
@@ -90,9 +88,43 @@ def set_cross_section_on_center_line(R_in :float=0, R_out :float= 0.5, ele_no :i
 
     return rP, xyz_coord_out#, xyz_coord_out
 
+# __*__*__*__*__*__*__*__*__*__*__*__*__*__*__*__*__*__*__*__*__*__*__*__*__*__*__*__*__*__*__*__*__*__*__*__*
+def show_graphics_pyplot(X, Y, Z) -> None:
+    
+    # Plot the surface
+    fig = plt.figure()
+    ax = fig.add_subplot(111, projection='3d')
+    surf = ax.plot_surface(X, Y, Z, color='w', cmap='rainbow')
+    cbar = fig.colorbar(surf)
+    cbar.solids.set_edgecolor("face")
+    #ax.plot_surface(X, Y, Z, vmin=Z.min() * 2, cmap=cm.Blues)
+    # Labels and title
+    ax.set_xlabel('X')
+    ax.set_ylabel('Y')
+    ax.set_zlabel('Z')
+    ax.set_title('3D Parametric Surface:')
 
-def f(x, y):
-    return x ** 2 + y ** 2 + x * y
+    ax.set(xticklabels=[],
+       yticklabels=[],
+       zticklabels=[])
+
+    # Show the plot
+    plt.show()
+    
+
+# __*__*__*__*__*__*__*__*__*__*__*__*__*__*__*__*__*__*__*__*__*__*__*__*__*__*__*__*__*__*__*__*__*__*__*__*
+def show_graphics_mayavi(X, Y, Z) -> None:
+    import mayavi
+    from mayavi import mlab
+    
+    mlab.surf(X, Y, Z, extent=(0,1,0,1,0,1))
+
+     #mlab.surf(Z, warp_scale='auto')
+    
+    mlab.mesh(X,Y,Z)
+    mlab.show()
+    
+    return None
 
 
 if __name__ == '__main__':
@@ -100,27 +132,7 @@ if __name__ == '__main__':
     rP, xyz = set_cross_section_on_center_line()
 
     X, Y = (xyz[:,0], xyz[:,1])
-    Z = f(X,Y) #xyz[:,2]
-    #matlib.repmat(Z, 2, 37)
-
-    print(X.shape, Y.shape, Z.shape)
-
-    #mlab.plot3d(X, Y, Z, tube_radius = 0.5, tube_sides = 20)
-    #Z = np.reshape(z, X.shape)
-    #mlab.surf(X, Y, Z, extent=(0,1,0,1,0,1))
-
-        #mlab.surf(Z, warp_scale='auto')
-    
-    #mlab.mesh(X,Y,Z)
-    #mlab.show()
-
-    # Plot the surface
-    ax = plt.axes(projection='3d')
-    ax.plot_surface(X, Y, Z, cmap='viridis')
-    #fig, ax = plt.subplots(subplot_kw={"projection": "3d"})
-    #ax.plot_surface(X, Y, Z, vmin=Z.min() * 2, cmap=cm.Blues)
-
-    #ax.set(xticklabels=[],
-    #   yticklabels=[],
-    #   zticklabels=[])
-    plt.show()
+    Z = matlib.repmat(xyz[:,2],len(X), 1)
+    X, Y = np.meshgrid(X,Y)
+       
+    show_graphics_pyplot(X,Y,Z)

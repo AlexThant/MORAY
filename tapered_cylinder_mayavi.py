@@ -11,16 +11,22 @@ def torus(R, r, u, v):
 # Create a grid of the u and v values
 u = np.linspace(0, 2 * np.pi, 100)
 v = np.linspace(0, 2 * np.pi, 100)
+
+print(u.shape)
+
 u, v = np.meshgrid(u, v)
+print(u.shape)
 # Calculate the coordinates of the torus
 R = 3 
 r = 1  
 x, y, z = torus(R, r, u, v)
+print(x.shape, y.shape, z.shape)
 # Plot the torus
 fig = plt.figure()
 ax = fig.add_subplot(111, projection='3d')
-surf = ax.plot_surface(x, y, z, color='c', edgecolor='k', alpha=0.6)
-fig.colorbar(surf)
+surf = ax.plot_surface(x, y, z, color='c', edgecolor='k', alpha=0.6, cmap='rainbow')
+cbar = fig.colorbar(surf)
+cbar.solids.set_edgecolor("face")
 # Labels and title
 ax.set_xlabel('X')
 ax.set_ylabel('Y')
