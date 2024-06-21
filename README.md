@@ -8,7 +8,12 @@ Run the script using the command below.
  python .\Main.py .\Inputs\Beam_ANCF_coordinates.txt 
 
  # Requirements
-#1. Python version 3.** (install via miniconda package)
+ #1. Python version 3.** (install via miniconda package)
  #2. Numpy (conda install numpy (or) python -m pip install numpy)
  #3. matplotlib (conda install matplotlib (or ) python -m pip install matplotlib)
+
+
+ # Notes
+ Define your beam's radii:: R_in and R_out in the script Main.py.
+ Modifications can also be made to fit your requirements. Other modules are stored in the \src folder.
  
