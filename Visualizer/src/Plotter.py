@@ -116,7 +116,7 @@ class DISPLAY:
         
         
     # __*__*__*__*__*__*__*__*__*__*__*__*__*__*__*__*__*__*__*__*__*__*__*__*__*__*__*__*__*__*__*__*__*__*__*__* 
-    def pyplot_settings_helper(self, surf, title: str = None, background_trans: bool = True, colorbar_label :str= 'Deformation [m]',shrink_color_bar: bool = True)-> None: #fig: object, surf: object,
+    def pyplot_settings_helper(self, surf, title: str = None, background_trans: bool = True, colorbar_label :str= 'Normalized deformation [m]',shrink_color_bar: bool = True)-> None: #fig: object, surf: object,
         # Make legend, set axes limits and labels
         #ax.legend("Legend")
         ax.set_xlim(-0.5, 0.5)
