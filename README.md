@@ -4,6 +4,7 @@ MORAY is a mooring and riser analysis program developed in C++ and Python langua
 First, you need to generate the input data file from your ANCF FEM code.
 See the example file format in the folder:: Inputs>>Beam_ANCF_coordinates.txt.
 
+Run the script using the command below.
  python .\Main.py .\Inputs\Beam_ANCF_coordinates.txt 
 
  # Requirements
