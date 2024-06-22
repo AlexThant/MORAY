@@ -14,6 +14,8 @@ from matplotlib.colors import Normalize
 
 plt.rcParams['figure.figsize']=[20,15]
 plt.rcParams['figure.constrained_layout.use'] = True
+plt.rcParams['xtick.major.pad']='8'
+plt.rcParams['ytick.major.pad']='8'
 plt.rcParams.update({'font.size': 12})
 fig :object = plt.figure()
 ax :object  = fig.add_subplot(111, projection= '3d')
@@ -116,39 +118,51 @@ class DISPLAY:
         
         
     # __*__*__*__*__*__*__*__*__*__*__*__*__*__*__*__*__*__*__*__*__*__*__*__*__*__*__*__*__*__*__*__*__*__*__*__* 
-    def pyplot_settings_helper(self, surf, title: str = None, background_trans: bool = True, colorbar_label :str= 'Normalized deformation [m]',shrink_color_bar: bool = True)-> None: #fig: object, surf: object,
+    def pyplot_settings_helper(self, surf : object, 
+                               title: str = None, 
+                               background_trans: bool = True, 
+                               show_axes :bool = True,
+                               colorbar_label :str= 'Normalized deformation [m]',
+                               shrink_color_bar: bool = True
+                               )-> None:
+        
         # Make legend, set axes limits and labels
         #ax.legend("Legend")
-        ax.set_xlim(-0.5, 0.5)
-        ax.set_ylim(-0.5, 0.5)
-        ax.set_zlim(-3, 0.5)
-        ax.set_xlabel('X [m]')
-        ax.set_ylabel('Y [m]')
-        ax.set_zlabel('Z [m]')
+        try :
+            
+            if show_axes:
+            
+                ax.set_xlim(-0.5, 0.5)
+                ax.set_ylim(-0.5, 0.5)
+                ax.set_zlim(-3, 0.5)
+                ax.set_xlabel('X [m]')
+                ax.set_ylabel('Y [m]')
+                ax.set_zlabel('Z [m]')
+                
+                 # Customize the view angle so it's easier to see the figure
+                # Default view angle (elev=28., azim=45, roll=0)
+                ax.view_init(elev=20., azim=-45, roll=0)
+                # set viewing angle
+                ax.dist = 5    # zoom (define perspective)
 
-        # Customize the view angle so it's easier to see the figure
-        # Default view angle (elev=28., azim=45, roll=0)
-        ax.view_init(elev=20., azim=-45, roll=0)
-        # set viewing angle
-        ax.dist = 5    # zoom (define perspective)
+                if not title is None: ax.set_title(title)
+            
+            else:
+                ax.set_axis_off()
+                                            
+        finally:
 
-        if not title is None: ax.set_title(title)
-        ax.set_aspect('equal')
-
-        #ax.set(xticklabels=[],
-        #   yticklabels=[],
-        #   zticklabels=[])
-        #ax.set_box_aspect([1.0, 1.0, 1.0])
-
-        if background_trans:
-            # make the panes transparent
-            ax.xaxis.set_pane_color((1.0, 1.0, 1.0, 0.0))
-            ax.yaxis.set_pane_color((1.0, 1.0, 1.0, 0.0))
-            ax.zaxis.set_pane_color((1.0, 1.0, 1.0, 0.0))
-            # make the grid lines transparent
-            ax.xaxis._axinfo["grid"]['color'] =  (1,1,1,0)
-            ax.yaxis._axinfo["grid"]['color'] =  (1,1,1,0)
-            ax.zaxis._axinfo["grid"]['color'] =  (1,1,1,0)
+            ax.set_aspect('equal')
+            
+            if background_trans:
+                # make the panes transparent
+                ax.xaxis.set_pane_color((1.0, 1.0, 1.0, 0.0))
+                ax.yaxis.set_pane_color((1.0, 1.0, 1.0, 0.0))
+                ax.zaxis.set_pane_color((1.0, 1.0, 1.0, 0.0))
+                # make the grid lines transparent
+                ax.xaxis._axinfo["grid"]['color'] =  (1,1,1,0)
+                ax.yaxis._axinfo["grid"]['color'] =  (1,1,1,0)
+                ax.zaxis._axinfo["grid"]['color'] =  (1,1,1,0)
        
        
        # Adding the colorbar
