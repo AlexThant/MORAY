@@ -9,8 +9,14 @@ Run the script using the command below.
 
  # Requirements
  #1. Python version 3.** (install via miniconda package)
- #2. Numpy (conda install numpy (or) python -m pip install numpy)
- #3. matplotlib (conda install matplotlib (or ) python -m pip install matplotlib)
+ #2. Numpy (
+ $conda install numpy (or) 
+ $python -m pip install numpy
+ )
+ #3. matplotlib (
+ $conda install matplotlib (or ) 
+ $python -m pip install matplotlib
+ )
 
 
  # Notes
