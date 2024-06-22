@@ -1,20 +1,18 @@
 MORAY is a mooring and riser analysis program developed in C++ and Python languages.
 
 # To run Visualizer script, 
-First, you need to generate the input data file from your ANCF FEM code.
-See the example file format in the folder:: Inputs>>Beam_ANCF_coordinates.txt.
+<p>First, you need to generate the input data file from your ANCF FEM code.<br>
+See the example file format in the folder:: Inputs>>Beam_ANCF_coordinates.txt.</p>
 
-Run the script using the command below.
- python .\Main.py .\Inputs\Beam_ANCF_coordinates.txt 
+<p>Run the script using the command below.</p>
+'python .\Main.py .\Inputs\Beam_ANCF_coordinates.txt' 
 
  # Requirements
  #1. Python version 3.** (install via miniconda package)
  
  #2. Numpy :: to install it, simply run
  
- '''console
  $ conda install numpy
- '''
  (or)
  '''console
  $ python -m pip install numpy
