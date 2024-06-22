@@ -12,9 +12,13 @@ Run the script using the command below.
  
  #2. Numpy :: to install it, simply run
  
- $conda install numpy (or)
- $python -m pip install numpy
-
+ '''console
+ $ conda install numpy
+ '''
+ (or)
+ '''console
+ $ python -m pip install numpy
+'''
  #3. matplotlib, to install it, simply run
 
  $conda install matplotlib (or ) 
@@ -22,7 +26,7 @@ Run the script using the command below.
  
 
 
- # Notes
+ [!Note]
  Define your beam's radii:: R_in and R_out in the script Main.py.
  Modifications can also be made to fit your requirements. Other modules are stored in the \src folder.
 
