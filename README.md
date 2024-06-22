@@ -22,7 +22,7 @@ MORAY is a mooring and riser analysis program developed in C++ and Python langua
 ><code>$ python -m pip install mayavi</code></p>
 
  >[!NOTE]
- >Define your beam's radii:: R_in and R_out in the script Main.py.
+ >Define the beam's radii:: R_in and R_ext in the script file:: Main.py.
  >Modifications can also be made to fit your requirements. Other modules are stored in the *[\src](https://github.com/AlexThant/MORAY/blob/Visualizer/Visualizer/src)* folder.)
 
 
