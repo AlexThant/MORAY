@@ -5,7 +5,7 @@ MORAY is a mooring and riser analysis program developed in C++ and Python langua
 See the example file format in the folder:: Inputs>>Beam_ANCF_coordinates.txt.</p>
 
 <p>Run the script using the command below.</p>
-<code>$ python .\Main.py .\Inputs\Beam_ANCF_coordinates.txt</code> 
+<span style="color:#59afe1"><code>$ python .\Main.py .\Inputs\Beam_ANCF_coordinates.txt</code></span> 
 
  # Requirements
  - 1. Python version 3.** (install via *[miniconda package](https://docs.anaconda.com/miniconda/)*).
