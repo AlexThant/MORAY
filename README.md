@@ -10,12 +10,10 @@ MORAY is a mooring and riser analysis program developed in C++ and Python langua
 
  # Requirements
  >[!TIP]
- > - 1. Python version 3.** (install via *[miniconda package](https://docs.anaconda.com/miniconda/)*).
- 
- > - 2. Numpy :: to install it, simply run
- 
- ><p><code>$ conda install numpy</code>
- (or)</p>
+ > - 1. <p> Python version 3.** (install via *[miniconda package](https://docs.anaconda.com/miniconda/)*).<br>
+ > - 2. Numpy :: to install it, simply run<br>
+ ><code>$ conda install numpy</code>
+ (or)<br>
  ><p><code>$ python -m pip install numpy</code></p>
 
  > - 3. matplotlib :: to install it, simply run
