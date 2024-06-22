@@ -6,7 +6,7 @@ MORAY is a mooring and riser analysis program developed in C++ and Python langua
 >See the example file format in the folder:: Inputs>>Beam_ANCF_coordinates.txt.</p>
 
 <p>Run the script using the command below.</p>
-<span style="color:#59afe1"><code>$ python .\Main.py .\Inputs\Beam_ANCF_coordinates.txt</code></span> 
+<code>$ python .\Main.py .\Inputs\Beam_ANCF_coordinates.txt</code>
 
  # Requirements
  >[!TIP]
@@ -28,3 +28,9 @@ MORAY is a mooring and riser analysis program developed in C++ and Python langua
 
 ![Demo pipe deformation](https://github.com/AlexThant/MORAY/blob/Visualizer/Visualizer/Drill_pipe_demo_display.png)
 ![Demo pipe deformation in Mayavi](https://github.com/AlexThant/MORAY/blob/Visualizer/ANCF_pipe_snapshot.png)
+
+# Citation
+<span style="color:#59afe1">To cite MORAY Visualizer in public use:</span>
+
+Thant Zin Htun(2014). MORAY
+URL [MORAY_VISUALIZER](https://github.com/AlexThant/MORAY/tree/Visualizer).
