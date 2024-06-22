@@ -30,10 +30,11 @@ MORAY is a mooring and riser analysis program developed in C++ and Python langua
 ![Demo pipe deformation in Mayavi](https://github.com/AlexThant/MORAY/blob/Visualizer/ANCF_pipe_snapshot.png)
 
 
-$${\color{red}Welcome \space \color{lightblue}To \space \color{orange}Stackoverflow}$$
 # Citation
 To cite MORAY Visualizer in public use:</span>
+$${\color{orange}TZ\space Htun\space (2024) :: MORAY}$$
 
-\color{lightgreen}{Thant Zin Htun (2024). MORAY
+
+\color{lightgreen}{ (2024). MORAY
 + URL [MORAY_VISUALIZER](https://github.com/AlexThant/MORAY/tree/Visualizer):: https://github.com/AlexThant/MORAY/tree/Visualizer.
 
