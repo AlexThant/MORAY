@@ -10,17 +10,16 @@ See the example file format in the folder:: Inputs>>Beam_ANCF_coordinates.txt.</
  # Requirements
  - 1. Python version 3.** (install via *[miniconda package](https://docs.anaconda.com/miniconda/)*.
  
- - 2. Numpy :: to install it, simply run
+ - 2. <p>Numpy :: to install it, simply run</p>
  
- <code>conda install numpy</code>
- (or)
- '''console
- <code>python -m pip install numpy</code>
-'''
+ <p><code>conda install numpy</code>
+ (or)</p>
+ <p><code>python -m pip install numpy</code></p>
+
  - 3. matplotlib, to install it, simply run
 
- <code>conda install matplotlib</code> (or ) 
- <code>python -m pip install matplotlib</code>
+ <p><code>conda install matplotlib</code> (or)</p> 
+ <p><code>python -m pip install matplotlib</code></p>
  
 - 4 To use Mayavi module, install PyQt5 and Mayavi modules.
 <p><code>python -m pip install pyqt5</code></p>
