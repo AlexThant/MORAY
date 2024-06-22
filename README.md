@@ -27,4 +27,4 @@ Run the script using the command below.
  Modifications can also be made to fit your requirements. Other modules are stored in the \src folder.
 
 
-![alt text]] (https://github.com/AlexThant/MORAY/blob/Visualizer/Visualizer/Drill_pipe_demo_display.png?raw=true)
+![Demo pipe deformation](Drill_pipe_demo_display.png?raw=true)
