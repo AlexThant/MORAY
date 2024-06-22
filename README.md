@@ -8,21 +8,23 @@ See the example file format in the folder:: Inputs>>Beam_ANCF_coordinates.txt.</
 <code>python .\Main.py .\Inputs\Beam_ANCF_coordinates.txt</code> 
 
  # Requirements
- #1. Python version 3.** (install via miniconda package)
+ - 1. Python version 3.** (install via *[miniconda package](https://docs.anaconda.com/miniconda/)*.
  
- #2. Numpy :: to install it, simply run
+ - 2. Numpy :: to install it, simply run
  
  <code>conda install numpy</code>
  (or)
  '''console
  <code>python -m pip install numpy</code>
 '''
- #3. matplotlib, to install it, simply run
+ - 3. matplotlib, to install it, simply run
 
  <code>conda install matplotlib</code> (or ) 
  <code>python -m pip install matplotlib</code>
  
-
+- 4 To use Mayavi module, install PyQt5 and Mayavi modules.
+<p><code>python -m pip install pyqt5</code></p>
+<p><code>python -m pip install mayavi</code></p>
 
  [!Note]
  Define your beam's radii:: R_in and R_out in the script Main.py.
