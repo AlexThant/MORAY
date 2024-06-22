@@ -14,16 +14,16 @@ MORAY is a mooring and riser analysis program developed in C++ and Python langua
  > - 2. Numpy :: to install it, simply run<br>
  ><code>$ conda install numpy</code>
  (or)<br>
- ><p><code>$ python -m pip install numpy</code></p>
+ ><code>$ python -m pip install numpy</code><br>
 
- > - 3. matplotlib :: to install it, simply run
+ > - 3. matplotlib :: to install it, simply run<br>
 
- ><p><code>$ conda install matplotlib</code> (or)</p> 
- ><p><code>$ python -m pip install matplotlib</code></p>
+ ><code>$ conda install matplotlib</code> (or)<br> 
+ ><code>$ python -m pip install matplotlib</code><br>
  
- > - 4. To use *[Mayavi](https://mayavi.readthedocs.io/en/latest/)*, install *[PyQt5](https://pypi.org/project/PyQt5/)* and *[Mayavi](https://mayavi.readthedocs.io/en/latest/)* modules.</p>
-><p><code>$ python -m pip install pyqt5</code></p>
-><p><code>$ python -m pip install mayavi</code></p>
+ > - 4. To use *[Mayavi](https://mayavi.readthedocs.io/en/latest/)*, install *[PyQt5](https://pypi.org/project/PyQt5/)* and *[Mayavi](https://mayavi.readthedocs.io/en/latest/)* modules.<br>
+><code>$ python -m pip install pyqt5</code><br>
+><code>$ python -m pip install mayavi</code></p>
 
  >[!NOTE]
  >Define your beam's radii:: R_in and R_out in the script Main.py.
