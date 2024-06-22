@@ -25,8 +25,9 @@ See the example file format in the folder:: Inputs>>Beam_ANCF_coordinates.txt.</
 <p><code>$ python -m pip install pyqt5</code></p>
 <p><code>$ python -m pip install mayavi</code></p>
 
- [!NOTE](Define your beam's radii:: R_in and R_out in the script Main.py.
- Modifications can also be made to fit your requirements. Other modules are stored in the \src folder.)
+ >[!NOTE]
+ >Define your beam's radii:: R_in and R_out in the script Main.py.
+ >Modifications can also be made to fit your requirements. Other modules are stored in the \src folder.)
 
 
 ![Demo pipe deformation](https://github.com/AlexThant/MORAY/blob/Visualizer/Visualizer/Drill_pipe_demo_display.png)
