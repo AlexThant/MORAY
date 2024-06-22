@@ -5,22 +5,22 @@ MORAY is a mooring and riser analysis program developed in C++ and Python langua
 See the example file format in the folder:: Inputs>>Beam_ANCF_coordinates.txt.</p>
 
 <p>Run the script using the command below.</p>
-'python .\Main.py .\Inputs\Beam_ANCF_coordinates.txt' 
+<code>python .\Main.py .\Inputs\Beam_ANCF_coordinates.txt</code> 
 
  # Requirements
  #1. Python version 3.** (install via miniconda package)
  
  #2. Numpy :: to install it, simply run
  
- $ conda install numpy
+ <code>conda install numpy</code>
  (or)
  '''console
- $ python -m pip install numpy
+ <code>python -m pip install numpy</code>
 '''
  #3. matplotlib, to install it, simply run
 
- $conda install matplotlib (or ) 
- $python -m pip install matplotlib
+ <code>conda install matplotlib</code> (or ) 
+ <code>python -m pip install matplotlib</code>
  
 
 
