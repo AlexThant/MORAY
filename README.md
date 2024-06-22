@@ -26,9 +26,9 @@ MORAY is a mooring and riser analysis program developed in C++ and Python langua
  >Modifications can also be made to fit your requirements. Other modules are stored in the *[\src](https://github.com/AlexThant/MORAY/blob/Visualizer/Visualizer/src)* folder.)
 
 
-![Demo pipe deformation](https://github.com/AlexThant/MORAY/blob/Visualizer/Visualizer/Drill_pipe_demo_display.png)
+![Demo pipe deformation](https://github.com/AlexThant/MORAY/blob/Visualizer/Visualizer/Drill_pipe_demo_display.png?raw=true)
 ![Demo_twisted_pipe](https://github.com/AlexThant/MORAY/blob/Visualizer/Visualizer/Demo_twisted_ANCF_pipe.png?raw=true)
-![Demo pipe deformation in Mayavi](https://github.com/AlexThant/MORAY/blob/Visualizer/ANCF_pipe_snapshot.png)
+![Demo pipe deformation in Mayavi](https://github.com/AlexThant/MORAY/blob/Visualizer/ANCF_pipe_snapshot.png?raw=true)
 
 
 # Citation
