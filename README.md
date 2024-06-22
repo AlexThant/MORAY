@@ -25,4 +25,6 @@ Run the script using the command below.
  # Notes
  Define your beam's radii:: R_in and R_out in the script Main.py.
  Modifications can also be made to fit your requirements. Other modules are stored in the \src folder.
- 
+
+
+![alt text]] (https://github.com/AlexThant/MORAY/blob/Visualizer/Visualizer/Drill_pipe_demo_display.png?raw=true)
