@@ -32,5 +32,5 @@ MORAY is a mooring and riser analysis program developed in C++ and Python langua
 # Citation
 <span style="color:#59afe1">To cite MORAY Visualizer in public use:</span>
 
-Thant Zin Htun(2014). MORAY
-URL [MORAY_VISUALIZER](https://github.com/AlexThant/MORAY/tree/Visualizer).
+Thant Zin Htun(2024). MORAY
+URL [MORAY_VISUALIZER](https://github.com/AlexThant/MORAY/tree/Visualizer):: https://github.com/AlexThant/MORAY/tree/Visualizer.
