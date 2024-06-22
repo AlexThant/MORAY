@@ -14,8 +14,6 @@ from matplotlib.colors import Normalize
 
 plt.rcParams['figure.figsize']=[20,15]
 plt.rcParams['figure.constrained_layout.use'] = True
-plt.rcParams['xtick.major.pad']='8'
-plt.rcParams['ytick.major.pad']='8'
 plt.rcParams.update({'font.size': 12})
 fig :object = plt.figure()
 ax :object  = fig.add_subplot(111, projection= '3d')
@@ -46,7 +44,7 @@ class DISPLAY:
                             facecolors= col_variable, cmap='rainbow',
                             rstride=1, cstride=1, 
                             linestyle= 'dashed',
-                            linewidth= 0.25, alpha= 0.9, antialiased= True, 
+                            linewidth= 0.25, alpha= 1.0, antialiased= True, 
                             zorder=2
                             ) # rstride=1, cstride=1, cmap=cm.winter, linewidth=0.5, antialiased=True, zorder = 0.5)
         
@@ -59,122 +57,115 @@ class DISPLAY:
                           Xcrs_b: list[float], Ycrs_b: list[float], Zcrs_b: list[float], 
                           X_in :list[float] = [None,], Y_in: list[float] = [None,], 
                           plot_id : int= 0, setting_flag: list[bool, bool] = [False, False], 
-                          colormap_variable :str = 'deformation'
+                          colormap_variable :str = None,
                           ) -> None:
         """Generate a 3D surface plot using matplotlib. 
            A customized variable to show colormap can be set too. 
 
         """
-            
-        # Plot the surface
-        alpha_val, f_color, ls = ((0., 'k', 'dashed') if plot_id == 0 else
-                                  (0, 'w', 'solid')
-                            ) 
-        
-        surf = ax.plot_surface(X, Y, Z, 
-                            color=f_color, edgecolors = 'k',
-                            rstride=1, cstride=1, 
-                            linestyle= ls,
-                            linewidth= 0.25, alpha= alpha_val, antialiased= True, 
-                            zorder=2
-                            ) # rstride=1, cstride=1, cmap=cm.winter, linewidth=0.5, antialiased=True, zorder = 0.5)
 
-        if X_in.any() != None:
-            surf_1 = ax.plot_surface(X_in, Y_in, Z, 
-                                    color='k', edgecolors = 'k',
-                                    rstride=1, cstride=1, 
-                                    linestyle= ls,
-                                    linewidth= 0.25, alpha= alpha_val, antialiased= True, 
-                                    zorder=1
-                                    )
-        #___ End caps ___  
-        edge_col :str = ('k' if setting_flag[1] else
-                         None
-                         )
-            
-        ax.plot_surface(Xcrs_t, Ycrs_t, Zcrs_t, 
-                        edgecolors = edge_col, 
-                        alpha= 1.0, 
-                        linewidth = 1, linestyle= 'solid',
-                        antialiased= True, 
-                        zorder=0
-                        )
-        
-        ax.plot_surface(Xcrs_b, Ycrs_b, Zcrs_b, 
-                        edgecolors = edge_col,
-                        alpha= 1.0, 
-                        linewidth = 1, linestyle= 'solid',
-                        antialiased= True, 
-                        zorder=0
-                        )
-        
-        
         # Add colormap plot for a defined variable
-        if (plot_id !=0 and str(colormap_variable).lower() == 'deformation'):
-            surf_colormap = self.show_colormap_deformation(X,Y, Z)
-            return surf_colormap
-        else:
-            return surf
+        try:
+
+            if (plot_id !=0 and colormap_variable is not None):
+                if str(colormap_variable).lower() == 'deformation': 
+                    surf_colormap = self.show_colormap_deformation(X,Y, Z) 
+                    return surf_colormap
+            else:
+                pass
+
+        finally:
+            # Plot the surface
+            alpha_val, f_color, lw, ls = ((0., 'k', 0.25, 'dashed') if plot_id == 0 else
+                                          (0., 'w', 0.10, 'solid')
+                                ) 
+            
+            surf = ax.plot_surface(X, Y, Z, 
+                                color=f_color, edgecolors = 'k',
+                                rstride=1, cstride=1, 
+                                linestyle= ls,
+                                linewidth= lw, alpha= alpha_val, antialiased= True, 
+                                zorder=2
+                                )
+
+            if X_in.any() != None:
+                surf_1 = ax.plot_surface(X_in, Y_in, Z, 
+                                        color='k', edgecolors = 'k',
+                                        rstride=1, cstride=1, 
+                                        linestyle= ls,
+                                        linewidth= lw, alpha= alpha_val, antialiased= True, 
+                                        zorder=1
+                                        )
+            #___ End caps ___  
+            edge_col :str = ('k' if setting_flag[1] else
+                            None
+                            )
+                
+            ax.plot_surface(Xcrs_t, Ycrs_t, Zcrs_t, 
+                            edgecolors = edge_col, 
+                            alpha= 0.8, 
+                            linewidth = 1, linestyle= 'solid',
+                            antialiased= True, 
+                            zorder=0
+                            )
+            
+            ax.plot_surface(Xcrs_b, Ycrs_b, Zcrs_b, 
+                            edgecolors = edge_col,
+                            alpha= 0.8, 
+                            linewidth = 1, linestyle= 'solid',
+                            antialiased= True, 
+                            zorder=0
+                            )
         
-        
+
     # __*__*__*__*__*__*__*__*__*__*__*__*__*__*__*__*__*__*__*__*__*__*__*__*__*__*__*__*__*__*__*__*__*__*__*__* 
-    def pyplot_settings_helper(self, surf : object, 
-                               title: str = None, 
-                               background_trans: bool = True, 
-                               show_axes :bool = True,
-                               colorbar_label :str= 'Normalized deformation [m]',
-                               shrink_color_bar: bool = True
-                               )-> None:
-        
+    def pyplot_settings_helper(self, surf :object = None, title: str = None, background_trans: bool = True, colorbar_label :str= 'Normalized deformation [m]',shrink_color_bar: bool = True)-> None: #fig: object, surf: object,
         # Make legend, set axes limits and labels
         #ax.legend("Legend")
-        try :
-            
-            if show_axes:
-            
-                ax.set_xlim(-0.5, 0.5)
-                ax.set_ylim(-0.5, 0.5)
-                ax.set_zlim(-3, 0.5)
-                ax.set_xlabel('X [m]')
-                ax.set_ylabel('Y [m]')
-                ax.set_zlabel('Z [m]')
-                
-                 # Customize the view angle so it's easier to see the figure
-                # Default view angle (elev=28., azim=45, roll=0)
-                ax.view_init(elev=20., azim=-45, roll=0)
-                # set viewing angle
-                ax.dist = 5    # zoom (define perspective)
+        ax.set_xlim(-0.5, 0.5)
+        ax.set_ylim(-0.5, 0.5)
+        ax.set_zlim(-3, 0.5)
+        ax.set_xlabel('X [m]')
+        ax.set_ylabel('Y [m]')
+        ax.set_zlabel('Z [m]')
 
-                if not title is None: ax.set_title(title)
-            
+        # Customize the view angle so it's easier to see the figure
+        # Default view angle (elev=28., azim=45, roll=0)
+        ax.view_init(elev=20., azim=-45, roll=0)
+        # set viewing angle
+        ax.dist = 5    # zoom (define perspective)
+
+        if not title is None: ax.set_title(title)
+        ax.set_aspect('equal')
+
+        #ax.set(xticklabels=[],
+        #   yticklabels=[],
+        #   zticklabels=[])
+        #ax.set_box_aspect([1.0, 1.0, 1.0])
+
+        if background_trans:
+            # make the panes transparent
+            ax.xaxis.set_pane_color((1.0, 1.0, 1.0, 0.0))
+            ax.yaxis.set_pane_color((1.0, 1.0, 1.0, 0.0))
+            ax.zaxis.set_pane_color((1.0, 1.0, 1.0, 0.0))
+            # make the grid lines transparent
+            ax.xaxis._axinfo["grid"]['color'] =  (1,1,1,0)
+            ax.yaxis._axinfo["grid"]['color'] =  (1,1,1,0)
+            ax.zaxis._axinfo["grid"]['color'] =  (1,1,1,0)
+       
+       
+        if not surf is None:
+
+            # Adding the colorbar
+            cbaxes = fig.add_axes([0.7, 0.3, 0.01, 0.5]) 
+            if shrink_color_bar:
+                cbar = fig.colorbar(surf, shrink=0.5, aspect=5, orientation='vertical', cax=cbaxes)
             else:
-                ax.set_axis_off()
-                                            
-        finally:
-
-            ax.set_aspect('equal')
+                cbar = fig.colorbar(surf, orientation='vertical', cax= cbaxes)
             
-            if background_trans:
-                # make the panes transparent
-                ax.xaxis.set_pane_color((1.0, 1.0, 1.0, 0.0))
-                ax.yaxis.set_pane_color((1.0, 1.0, 1.0, 0.0))
-                ax.zaxis.set_pane_color((1.0, 1.0, 1.0, 0.0))
-                # make the grid lines transparent
-                ax.xaxis._axinfo["grid"]['color'] =  (1,1,1,0)
-                ax.yaxis._axinfo["grid"]['color'] =  (1,1,1,0)
-                ax.zaxis._axinfo["grid"]['color'] =  (1,1,1,0)
-       
-       
-       # Adding the colorbar
-        cbaxes = fig.add_axes([0.7, 0.3, 0.01, 0.5]) 
-        if shrink_color_bar:
-            cbar = fig.colorbar(surf, shrink=0.5, aspect=5, orientation='vertical', cax=cbaxes)
-        else:
-            cbar = fig.colorbar(surf, orientation='vertical', cax= cbaxes)
-        
-        
-        cbar.solids.set_edgecolor("face")
-        cbar.set_label(colorbar_label)
+            
+            cbar.solids.set_edgecolor("face")
+            cbar.set_label(colorbar_label)
         
         # Show the plot with customized tight layout
         #fig.tight_layout(rect=[0, 0.03, 1, 1])
