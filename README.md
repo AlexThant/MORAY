@@ -25,7 +25,7 @@ See the example file format in the folder:: Inputs>>Beam_ANCF_coordinates.txt.</
 <p><code>$ python -m pip install pyqt5</code></p>
 <p><code>$ python -m pip install mayavi</code></p>
 
- [!Note]
+ [!NOTE]
  Define your beam's radii:: R_in and R_out in the script Main.py.
  Modifications can also be made to fit your requirements. Other modules are stored in the \src folder.
 
