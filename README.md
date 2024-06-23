@@ -2,7 +2,7 @@ MORAY is a mooring and riser analysis program developed in C++ and Python langua
 
 # To run Visualizer script, 
 >[!IMPORTANT]
-><p>First, absolute nodal coordinates for a global position vector and a complete set of three position gradient vectors need to be generated from ANCF FEM code.<br>
+><p>First, absolute nodal coordinates for a global position vector and a complete set of three position gradient vectors are needed from ANCF FEM code. Store the output file in Inputs folder.<br>
 >See the example file format in the folder:: Inputs>>Beam_ANCF_coordinates.txt.</p>
 
 <p>Run the script using the command below.</p>
