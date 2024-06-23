@@ -1,4 +1,4 @@
-MORAY is a mooring and riser analysis program developed in C++ and Python languages.
+MORAY is a mooring and riser analysis program developed/ currently being developed in C++ and Python languages.
 
 # To run Visualizer script, 
 >[!IMPORTANT]
