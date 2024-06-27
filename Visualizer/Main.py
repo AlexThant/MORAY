@@ -22,7 +22,8 @@ R_in :float = 0.0085
 R_ext :float= 0.0090
 
 Show_axes :bool = True
-Show_meshgrid :bool = False
+Show_meshgrid :bool = True
+Angle_resolution :float =  30.0  # in degree to discretize pipe's crosss-section
 ##############################################
 
 
@@ -60,7 +61,7 @@ if __name__ == '__main__':
                       
             #__________ solid flexible pipe ____________
             if (R_in == 0.):
-                X, Y, Z, Xcrs_t, Ycrs_t, Zcrs_t, Xcrs_b, Ycrs_b, Zcrs_b = ANCF_PIPE.create_surface_along_centerline(rP, rx, ry, rz, R_in, R_ext, nodes= nodes_num)
+                X, Y, Z, Xcrs_t, Ycrs_t, Zcrs_t, Xcrs_b, Ycrs_b, Zcrs_b = ANCF_PIPE.create_surface_along_centerline(rP, rx, ry, rz, R_in, R_ext, nodes= nodes_num, theta_resolution= Angle_resolution)
                  
                 surf = DISPLAY.pyplot_3d_surface( X, Y, Z, 
                                                  Xcrs_t, Ycrs_t, Zcrs_t, 

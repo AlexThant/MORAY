@@ -79,9 +79,9 @@ class DISPLAY:
            
             
             # Plot the surface with gride lines
-            alpha_val, f_color, lw, ls = ((0., 'k', 0.25, 'dashed') if plot_id == 0 else
+            alpha_val, f_color, lw, ls = ((0., 'k', 0.2, 'dashed') if plot_id == 0 else
                                           (0., 'w', 0.00, 'dashed') if (plot_id != 0 and not meshgrid_visible) else
-                                          (0., 'w', 0.15, 'solid')
+                                          (0., 'w', 0.1, 'solid')
                                 ) 
             
             surf = ax.plot_surface(X, Y, Z, 
@@ -128,7 +128,7 @@ class DISPLAY:
                                background_trans: bool = True, 
                                colorbar_label :str= 'Normalized deformation [m]',
                                shrink_color_bar: bool = True,
-                               axes_visible: bool = False
+                               axes_visible: bool = True
                                )-> None:
         
         # Make legend, set axes limits and labels
@@ -154,7 +154,7 @@ class DISPLAY:
         #   zticklabels=[])
         #ax.set_box_aspect([1.0, 1.0, 1.0])
 
-        if axes_visible:
+        if not axes_visible:
             ax. set_axis_off()
             
         else:

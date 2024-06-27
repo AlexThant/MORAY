@@ -36,7 +36,7 @@ class ANCF_PIPE:
             R_in (float, optional): _description_. Defaults to 0.3.
             R_ext (float, optional): _description_. Defaults to 0.5.
             ele_no (int, optional): _description_. Defaults to 1.
-            theta_resolution (int, optional): _description_. Defaults to 30.
+            theta_resolution in degree (int, optional): _description_. Defaults to 30.
 
         Returns:
             list[list[float,]]: _description_
