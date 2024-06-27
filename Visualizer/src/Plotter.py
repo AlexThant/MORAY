@@ -58,6 +58,7 @@ class DISPLAY:
                           X_in :list[float] = [None,], Y_in: list[float] = [None,], 
                           plot_id : int= 0, setting_flag: list[bool, bool] = [False, False], 
                           colormap_variable :str = None,
+                          meshgrid_visible :bool = True
                           ) -> None:
         """Generate a 3D surface plot using matplotlib. 
            A customized variable to show colormap can be set too. 
@@ -75,9 +76,12 @@ class DISPLAY:
                 pass
 
         finally:
-            # Plot the surface
+           
+            
+            # Plot the surface with gride lines
             alpha_val, f_color, lw, ls = ((0., 'k', 0.25, 'dashed') if plot_id == 0 else
-                                          (0., 'w', 0.10, 'solid')
+                                          (0., 'w', 0.00, 'dashed') if (plot_id != 0 and not meshgrid_visible) else
+                                          (0., 'w', 0.15, 'solid')
                                 ) 
             
             surf = ax.plot_surface(X, Y, Z, 
@@ -96,6 +100,7 @@ class DISPLAY:
                                         linewidth= lw, alpha= alpha_val, antialiased= True, 
                                         zorder=1
                                         )
+
             #___ End caps ___  
             edge_col :str = ('k' if setting_flag[1] else
                             None
@@ -119,7 +124,13 @@ class DISPLAY:
         
 
     # __*__*__*__*__*__*__*__*__*__*__*__*__*__*__*__*__*__*__*__*__*__*__*__*__*__*__*__*__*__*__*__*__*__*__*__* 
-    def pyplot_settings_helper(self, surf :object = None, title: str = None, background_trans: bool = True, colorbar_label :str= 'Normalized deformation [m]',shrink_color_bar: bool = True)-> None: #fig: object, surf: object,
+    def pyplot_settings_helper(self, surf :object = None, title: str = None, 
+                               background_trans: bool = True, 
+                               colorbar_label :str= 'Normalized deformation [m]',
+                               shrink_color_bar: bool = True,
+                               axes_visible: bool = False
+                               )-> None:
+        
         # Make legend, set axes limits and labels
         #ax.legend("Legend")
         ax.set_xlim(-0.5, 0.5)
@@ -143,15 +154,20 @@ class DISPLAY:
         #   zticklabels=[])
         #ax.set_box_aspect([1.0, 1.0, 1.0])
 
-        if background_trans:
-            # make the panes transparent
-            ax.xaxis.set_pane_color((1.0, 1.0, 1.0, 0.0))
-            ax.yaxis.set_pane_color((1.0, 1.0, 1.0, 0.0))
-            ax.zaxis.set_pane_color((1.0, 1.0, 1.0, 0.0))
-            # make the grid lines transparent
-            ax.xaxis._axinfo["grid"]['color'] =  (1,1,1,0)
-            ax.yaxis._axinfo["grid"]['color'] =  (1,1,1,0)
-            ax.zaxis._axinfo["grid"]['color'] =  (1,1,1,0)
+        if axes_visible:
+            ax. set_axis_off()
+            
+        else:
+        
+            if background_trans:
+                # make the panes transparent
+                ax.xaxis.set_pane_color((1.0, 1.0, 1.0, 0.0))
+                ax.yaxis.set_pane_color((1.0, 1.0, 1.0, 0.0))
+                ax.zaxis.set_pane_color((1.0, 1.0, 1.0, 0.0))
+                # make the grid lines transparent
+                ax.xaxis._axinfo["grid"]['color'] =  (1,1,1,0)
+                ax.yaxis._axinfo["grid"]['color'] =  (1,1,1,0)
+                ax.zaxis._axinfo["grid"]['color'] =  (1,1,1,0)
        
        
         if not surf is None:

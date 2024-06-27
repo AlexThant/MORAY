@@ -18,9 +18,11 @@ from src.Plotter import DISPLAY
 
 ########### User inputs for setting #########
 ele_num :int = 40
-R_in :float = 0.01
-R_ext :float= 0.03
+R_in :float = 0.0085
+R_ext :float= 0.0090
 
+Show_axes :bool = True
+Show_meshgrid :bool = False
 ##############################################
 
 
@@ -64,7 +66,10 @@ if __name__ == '__main__':
                                                  Xcrs_t, Ycrs_t, Zcrs_t, 
                                                  Xcrs_b, Ycrs_b, Zcrs_b, 
                                                  X_in, Y_in, 
-                                                 setting_flag= flag, plot_id= id, colormap_variable= 'deformation' 
+                                                 setting_flag= flag, 
+                                                 plot_id= id, 
+                                                 colormap_variable= 'deformation',
+                                                 meshgrid_visible= Show_meshgrid
                                                 )
             else:
             #__________ hollow flexible pipe ____________
@@ -74,7 +79,10 @@ if __name__ == '__main__':
                                                  Xcrs_t, Ycrs_t, Zcrs_t, 
                                                  Xcrs_b, Ycrs_b, Zcrs_b,
                                                  X_in, Y_in,
-                                                 setting_flag= flag, plot_id= id, colormap_variable= 'deformation' 
+                                                 setting_flag= flag, 
+                                                 plot_id= id, 
+                                                 colormap_variable= 'deformation',
+                                                 meshgrid_visible= Show_meshgrid 
                                                 )
             
         except NotImplementedError  as err:
@@ -83,6 +91,6 @@ if __name__ == '__main__':
          
         #show_graphics_mayavi( X, Y, Z, Xcrs_t, Ycrs_t, Zcrs_t, Xcrs_b, Ycrs_b, Zcrs_b, X_in, Y_in )
 
-    DISPLAY.pyplot_settings_helper(surf, title=None)
+    DISPLAY.pyplot_settings_helper(surf, title=None, axes_visible= Show_axes)
     DISPLAY.save_fig('Drill_pipe_demo_display.png')
     DISPLAY.show_fig()
